@@ -5,19 +5,28 @@
     </head>
     <body>
         <script>
+            //This function gets the computers choice when called upon
             function computerPlay() {
                 //Randomly return Rock, Paper or Scissors
                 goOptions = ["Rock", "Paper", "Scissors"];
+                //Assign random choice to compOption
                 const compOption = goOptions[Math.floor(Math.random()*goOptions.length)];
                 console.log(goOptions);
                 console.log(compOption);
+                //Return the choice so it is available outside the function
                 return compOption;
             }
 
+            //This function asks the player for their choice and compares with the computer choice to see who won and
+            //dicplay the appropriate message
             function playGame(playerSelection, computerSelection) {
+                //Prompt user for their choice and assign to playerOption
                 const playerOption = prompt("Choose rock, paper or scissors...");
+                //Convert player choice to the correct format (capitalized first letter) and assign to playerSelection
                 playerSelection = playerOption[0].toUpperCase() + playerOption.substring(1).toLowerCase();
+                //Call computerPlay function to get the 
                 computerSelection = computerPlay();
+                //Compare the computer and player choices and determine if the user won or lost and display the relevent message.
                 if (playerSelection === computerSelection) {
                     console.log("It's a tie, play again!");
                 } else if (playerSelection === "Rock" && computerSelection === "Paper") {
@@ -31,6 +40,7 @@
                 }
             }
 
+            //Call the playGame function
             playGame();
         </script>
     </body>
