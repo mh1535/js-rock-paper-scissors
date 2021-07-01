@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <script>
+            function computerPlay() {
+                //Randomly return Rock, Paper or Scissors
+                goOptions = ["Rock", "Paper", "Scissors"];
+                const compOption = goOptions[Math.floor(Math.random()*goOptions.length)];
+                console.log(goOptions);
+                console.log(compOption);
+                return compOption;
+            }
+
+            function playGame(playerSelection, computerSelection) {
+                const playerOption = prompt("Choose rock, paper or scissors...");
+                playerSelection = playerOption[0].toUpperCase() + playerOption.substring(1).toLowerCase();
+                computerSelection = computerPlay();
+                if (playerSelection === computerSelection) {
+                    console.log("It's a tie, play again!");
+                } else if (playerSelection === "Rock" && computerSelection === "Paper") {
+                    console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
+                    console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                } else {
+                    console.log("You win! " + playerSelection + " beats " + computerSelection);
+                }
+            }
+
+            playGame();
+        </script>
+    </body>
+</html>
