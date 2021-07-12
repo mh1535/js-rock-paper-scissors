@@ -53,7 +53,13 @@
             function game(){
                 while (playerScore < 3  && compScore < 3) {
                     playGame();
-                    console.log("The score is: Player: " + playerScore + " Computer: " + compScore);
+                    if (playerScore == 3) {
+                        console.log("Congratulations! You win 3-" + compScore + ".");
+                    } else if (compScore == 3) {
+                        console.log("Sorry, you lost 3-" + playerScore + ".");
+                    } else {
+                        console.log("The score is: Player: " + playerScore + " Computer: " + compScore);
+                    }
                 }
             }
             
