@@ -17,6 +17,10 @@
                 return compOption;
             }
 
+            //Create scoring variables
+            let playerScore = 0;
+            let compScore = 0;
+
             //This function asks the player for their choice and compares with the computer choice to see who won and
             //display the appropriate message
             function playGame(playerSelection, computerSelection) {
@@ -31,17 +35,29 @@
                     console.log("It's a tie, play again!");
                 } else if (playerSelection === "Rock" && computerSelection === "Paper") {
                     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                    compScore += 1;
                 } else if (playerSelection === "Paper" && computerSelection === "Scissors") {
                     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                    compScore += 1;
                 } else if (playerSelection === "Scissors" && computerSelection === "Rock") {
                     console.log("You lose! " + computerSelection + " beats " + playerSelection);
+                    compScore += 1;
                 } else {
                     console.log("You win! " + playerSelection + " beats " + computerSelection);
+                    playerScore += 1;
                 }
             }
 
+            
             //Call the playGame function
-            playGame();
+            function game(){
+                while (playerScore < 3  && compScore < 3) {
+                    playGame();
+                    console.log("The score is: Player: " + playerScore + " Computer: " + compScore);
+                }
+            }
+            
+            game();
         </script>
     </body>
 </html>
